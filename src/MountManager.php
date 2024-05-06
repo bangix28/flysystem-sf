@@ -34,6 +34,11 @@ class MountManager implements FilesystemOperator
         $this->config = new Config($config);
     }
 
+    public function getAdapter()
+    {
+        return $this->adapter;
+    }
+
     /**
      * It is not recommended to mount filesystems after creation because interacting
      * with the Mount Manager becomes unpredictable. Use this as an escape hatch.
