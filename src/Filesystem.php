@@ -33,6 +33,11 @@ class Filesystem implements FilesystemOperator
         $this->pathNormalizer = $pathNormalizer ?? new WhitespacePathNormalizer();
     }
 
+    public function getAdapter()
+    {
+        return $this->adapter;
+    }
+
     public function fileExists(string $location): bool
     {
         return $this->adapter->fileExists($this->pathNormalizer->normalizePath($location));
