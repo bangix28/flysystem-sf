@@ -40,7 +40,7 @@ class Filesystem implements FilesystemOperator
 
     public function setAdaptaterRootDirectory($path = ''): void
     {
-        $this->adapter->prefixer->prefixer = $path;
+        $this->adapter->prefixer->prefix = $path;
     }
 
     public function fileExists(string $location): bool
