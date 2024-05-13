@@ -40,6 +40,7 @@ class Filesystem implements FilesystemOperator
 
     public function setAdaptaterRootDirectory($path = ''): void
     {
+        dump($this->adapter);
         $this->adapter->prefixer->prefix = $path;
     }
 
