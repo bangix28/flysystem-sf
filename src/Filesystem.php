@@ -38,6 +38,11 @@ class Filesystem implements FilesystemOperator
         return $this->adapter;
     }
 
+    public function setAdaptaterRootDirectory($path = ''): void
+    {
+        $this->adapter->prefixer->prefixer = $path;
+    }
+
     public function fileExists(string $location): bool
     {
         return $this->adapter->fileExists($this->pathNormalizer->normalizePath($location));

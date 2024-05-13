@@ -9,5 +9,6 @@ interface FilesystemOperator extends FilesystemReader, FilesystemWriter
 
     public function getAdapter();
 
+    public function setAdaptaterRootDirectory(string $path);
 
 }
