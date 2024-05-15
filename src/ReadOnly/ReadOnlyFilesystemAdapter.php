@@ -24,6 +24,7 @@ class ReadOnlyFilesystemAdapter extends DecoratedAdapter implements FilesystemAd
 {
     use CalculateChecksumFromStream;
 
+
     public function write(string $path, string $contents, Config $config): void
     {
         throw UnableToWriteFile::atLocation($path, 'This is a readonly adapter.');
@@ -63,6 +64,7 @@ class ReadOnlyFilesystemAdapter extends DecoratedAdapter implements FilesystemAd
     {
         throw new UnableToCopyFile("Unable to copy file from $source to $destination as this is a readonly adapter.");
     }
+
 
     public function publicUrl(string $path, Config $config): string
     {

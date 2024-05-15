@@ -436,4 +436,9 @@ class MountManager implements FilesystemOperator
             throw UnableToMoveFile::fromLocationTo($source, $destination, $exception);
         }
     }
+
+    public function setAdaptaterRootDirectory(string $path)
+    {
+        // TODO: Implement setAdaptaterRootDirectory() method.
+    }
 }

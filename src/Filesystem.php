@@ -33,15 +33,14 @@ class Filesystem implements FilesystemOperator
         $this->pathNormalizer = $pathNormalizer ?? new WhitespacePathNormalizer();
     }
 
-    public function getAdapter()
+    public function getAdapter(): FilesystemAdapter
     {
         return $this->adapter;
     }
 
-    public function setAdaptaterRootDirectory($path = ''): void
+    public function setAdaptaterRootDirectory($path = ''): bool
     {
-        dump($this->adapter);
-        $this->adapter->prefixer->prefix = $path;
+        return $this->adapter->setPrefixerSftp($path);
     }
 
     public function fileExists(string $location): bool

@@ -4,10 +4,21 @@ declare(strict_types=1);
 
 namespace League\Flysystem;
 
+use League\Flysystem\PhpseclibV3\SftpAdapter;
+
 abstract class DecoratedAdapter implements FilesystemAdapter
 {
     public function __construct(protected FilesystemAdapter $adapter)
     {
+    }
+
+    public function setPrefixerSftp($path): bool
+    {
+        if ($this->adapter instanceof SftpAdapter) {
+            $this->adapter->changePrefixer($path);
+            return true;
+        }
+        return false;
     }
 
     public function fileExists(string $path): bool
